@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Sign_Up" />
         <activity android:name=".Term_conditions" />
-        <activity android:name=".About_us"></activity>
+        <activity android:name=".About_us" />
+        <activity android:name=".Category_page"></activity>
     </application>
 
 </manifest>
