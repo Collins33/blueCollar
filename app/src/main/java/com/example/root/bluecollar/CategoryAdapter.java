@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -23,10 +24,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
    //the nested class
     public static class CategoryView extends RecyclerView.ViewHolder{
         TextView categoryName;
+        ImageView categoryImage;
 
         public CategoryView(View view){
             super(view);
             this.categoryName=(TextView) itemView.findViewById(R.id.textViewName);
+            this.categoryImage=(ImageView) itemView.findViewById(R.id.imageView);
         }
     }
 
@@ -41,8 +44,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
     @Override
     public void onBindViewHolder(final CategoryView holder, final int listPosition){
         TextView categoryName= holder.categoryName;
+        ImageView categoryImage=holder.categoryImage;
 
         categoryName.setText(categoryData.get(listPosition).getName());
+        categoryImage.setImageResource(categoryData.get(listPosition).getImage());
     }
 
     @Override

@@ -35,7 +35,7 @@ public class Category_page extends AppCompatActivity {
 
         data=new ArrayList<Category>();
         for(int i=0; i<=5; i++){
-            data.add(new Category(MyData.categories[i]));
+            data.add(new Category(MyData.categories[i],MyData.images[i]));
         }
 
            adapter=new CategoryAdapter(data);
