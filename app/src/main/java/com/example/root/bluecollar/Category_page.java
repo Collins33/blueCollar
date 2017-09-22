@@ -34,10 +34,12 @@ public class Category_page extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
 
         data=new ArrayList<Category>();
-        for(int i=0; i<=6; i++){
+        for(int i=0; i<=5; i++){
             data.add(new Category(MyData.categories[i]));
         }
 
+           adapter=new CategoryAdapter(data);
+           recyclerView.setAdapter(adapter);
 
 
 
