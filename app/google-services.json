@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "659397186909",
+    "firebase_url": "https://bluecollar-60f6b.firebaseio.com",
+    "project_id": "bluecollar-60f6b",
+    "storage_bucket": "bluecollar-60f6b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659397186909:android:2a994088b7a5ec90",
+        "android_client_info": {
+          "package_name": "com.example.root.bluecollar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659397186909-9fbu74f14l5rru4pfdaqir5ca8k55i1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.root.bluecollar",
+            "certificate_hash": "cc4b250b4fb4a1be20b271eaa79fc6622d772371"
+          }
+        },
+        {
+          "client_id": "659397186909-5o399bnvov84tqd8bhtaam6omv39de3u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBDMgIlctUzYEcqD-tIyVH1EpihWgBL7YY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659397186909-5o399bnvov84tqd8bhtaam6omv39de3u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
