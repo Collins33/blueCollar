@@ -1,3 +1,22 @@
 <resources>
     <string name="app_name">BlueCollar</string>
+
+    <string name="title_activity_welcome">Home Screen</string>
+    <string name="next">NEXT</string>
+    <string name="skip">SKIP</string>
+    <string name="start">GOT IT</string>
+
+    <string name="slide_1_title">BLUECOLLAR!</string>
+    <string name="slide_1_desc">The easiest way to outsource jobs and get things done!</string>
+
+    <string name="slide_2_title">AVAILABILITY</string>
+    <string name="slide_2_desc">Get workers who are available any time!</string>
+
+    <string name="slide_3_title">Great Prices</string>
+    <string name="slide_3_desc">Best prices on every single service we offer!</string>
+
+    <string name="slide_4_title">Guarantee</string>
+    <string name="slide_4_desc">We guarantee you the best prices and the best quality!</string>
+
+
 </resources>
