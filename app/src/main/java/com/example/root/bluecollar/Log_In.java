@@ -16,5 +16,6 @@ public class Log_In extends AppCompatActivity {
     public void createAccount(View view){
         Intent intent=new Intent(getApplicationContext(),Sign_Up.class);
         startActivity(intent);
+        finish();
     }
 }
