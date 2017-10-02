@@ -1,9 +1,13 @@
-package com.example.root.bluecollar;
+package com.example.root.bluecollar.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.root.bluecollar.R;
+import com.example.root.bluecollar.ui.Log_In;
+import com.example.root.bluecollar.ui.Sign_Up;
 
 public class StartPage extends AppCompatActivity {
 

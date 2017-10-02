@@ -1,4 +1,4 @@
-package com.example.root.bluecollar;
+package com.example.root.bluecollar.models;
 
 /**
  * Created by root on 9/27/17.

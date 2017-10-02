@@ -1,10 +1,12 @@
-package com.example.root.bluecollar;
+package com.example.root.bluecollar.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.root.bluecollar.R;
 
 public class Log_In extends AppCompatActivity {
      TextView createAccount;

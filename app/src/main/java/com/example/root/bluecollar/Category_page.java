@@ -6,8 +6,10 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.example.root.bluecollar.adapters.CategoryAdapter;
+import com.example.root.bluecollar.models.Category;
 
 import java.util.ArrayList;
 
