@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Sign_Up extends AppCompatActivity{
     EditText emailInput;
@@ -21,6 +22,8 @@ public class Sign_Up extends AppCompatActivity{
     Button signUp;
     public static final String TAG = Sign_Up.class.getSimpleName();
     private FirebaseAuth mAuth;
+    //listen for authentication
+    private FirebaseAuth.AuthStateListener mAuthStateListener;
 
 
     @Override
@@ -31,11 +34,13 @@ public class Sign_Up extends AppCompatActivity{
         passwordInput=(EditText) findViewById(R.id.editText4);
         signUp=(Button) findViewById(R.id.signUpButton);
         mAuth=FirebaseAuth.getInstance();
+        createStateListener();
     }
     public void signUp(View view){
         Intent intent=new Intent(getApplicationContext(),Log_In.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+        finish();
     }
     private void registerAccount(){
         final String email=emailInput.getText().toString().trim();
@@ -58,6 +63,34 @@ public class Sign_Up extends AppCompatActivity{
 
     public void onClick(View view){
         registerAccount();
+    }
+    public void createStateListener(){
+        mAuthStateListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                final FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user != null){
+                    Intent intent=new Intent(Sign_Up.this,Category_page.class);
+                    //MAKE SURE YOU DONT GO BACK
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+
+            }
+        };
+    }
+    @Override
+    public void onStart(){
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthStateListener);
+    }
+    @Override
+    public void onStop(){
+        super.onStop();
+        if(mAuthStateListener == null){
+            mAuth.removeAuthStateListener(mAuthStateListener);
+        }
     }
 
 
