@@ -50,5 +50,6 @@
         android:text="Already have an account?Log in"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="17dp" />
+        android:layout_marginBottom="17dp"
+        android:onClick="signUp"/>
 </RelativeLayout>
