@@ -19,6 +19,6 @@ public class StartPage extends AppCompatActivity {
     public void SignUp(View view){
         Intent intent=new Intent(getApplicationContext(),Sign_Up.class);
         startActivity(intent);
-        finish();
+        //finish();
     }
 }
