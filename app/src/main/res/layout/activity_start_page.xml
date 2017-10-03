@@ -33,6 +33,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:background="@android:color/holo_green_light"
         android:onClick="logIn"
         android:text="Log-in" />
 
@@ -43,6 +44,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/button3"
+        android:background="@android:color/holo_green_light"
         android:onClick="SignUp"
         android:text="Sign-up" />
 
