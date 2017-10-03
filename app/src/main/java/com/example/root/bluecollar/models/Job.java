@@ -10,17 +10,17 @@ public class Job {
     private int payment;
     private String duration;
     private boolean urgency;
-    private int labour;
-    private String requirements;
 
-    public Job(String name,String category,int payment,String duration,boolean urgency,int labour,String requirements){
+    private String description;
+
+    public Job(String name,String category,int payment,String duration,boolean urgency,String description){
         this.name=name;
         this.category=category;
         this.payment=payment;
         this.duration=duration;
         this.urgency=urgency;
-        this.labour=labour;
-        this.requirements=requirements;
+
+        this.description=description;
     }
 
     public String getName() {
@@ -43,11 +43,9 @@ public class Job {
         return urgency;
     }
 
-    public int getLabour() {
-        return labour;
-    }
 
-    public String getRequirements() {
-        return requirements;
+
+    public String getDescription() {
+        return description ;
     }
 }
