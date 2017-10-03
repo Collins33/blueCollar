@@ -8,36 +8,38 @@
 
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
+        android:id="@+id/emailText"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="63dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="ENTER EMAIL"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:background="@android:color/white"
+        android:hint="EMAIL"
+        android:inputType="textEmailAddress"
+        android:layout_alignBottom="@+id/passwordInput"
+        android:layout_alignLeft="@+id/passwordInput"
+        android:layout_alignStart="@+id/passwordInput"
+        android:layout_marginBottom="95dp" />
 
     <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
+        android:id="@+id/passwordInput"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="ENTER PASSWORD"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
+        android:background="@android:color/white"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:layout_above="@+id/loginButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="47dp" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/loginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText2"
+
+        android:text="LOG-IN"
+
+        android:layout_above="@+id/createAccountNavigation"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="83dp"
-        android:text="LOG-IN" />
+        android:layout_marginBottom="125dp" />
 
     <TextView
         android:id="@+id/createAccountNavigation"
