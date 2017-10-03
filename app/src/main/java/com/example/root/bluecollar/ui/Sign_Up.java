@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Sign_Up extends AppCompatActivity{
     EditText emailInput;
     EditText passwordInput;
+    EditText confirmPasswordInput;
     Button signUp;
     public static final String TAG = Sign_Up.class.getSimpleName();
     private FirebaseAuth mAuth;
@@ -34,6 +36,7 @@ public class Sign_Up extends AppCompatActivity{
         setContentView(R.layout.activity_sign__up);
         emailInput=(EditText) findViewById(R.id.editText3);
         passwordInput=(EditText) findViewById(R.id.editText4);
+        confirmPasswordInput=(EditText) findViewById(R.id.confirmPasswordEditText);
         signUp=(Button) findViewById(R.id.signUpButton);
         mAuth=FirebaseAuth.getInstance();
         createStateListener();
@@ -44,9 +47,38 @@ public class Sign_Up extends AppCompatActivity{
         startActivity(intent);
         finish();
     }
+    //validate credentials
+    private boolean isEmailValid(String email){
+        //email is good if it is not null and matches industry standards
+        boolean isEmailGood=(email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if(!isEmailGood){
+            emailInput.setError("ENTER A VALID EMAIL");
+            return false;
+        }
+        return isEmailGood;
+    }
+
+    private boolean isPasswordValid(String password,String confirmPassword){
+        if(password.length()< 6){
+            passwordInput.setError("password must be more than 6 characters long");
+            return false;
+        }
+        else if(! password.equals(confirmPassword)){
+            confirmPasswordInput.setError("does not match password!!");
+            return false;
+        }
+        return true;
+
+    }
     private void registerAccount(){
         final String email=emailInput.getText().toString().trim();
         String password=passwordInput.getText().toString().trim();
+        String confirmation=confirmPasswordInput.getText().toString().trim();
+        //check credentials
+        boolean validEmail=isEmailValid(email);
+        boolean validPassword=isPasswordValid(password,confirmation);
+        if(!validEmail|!validPassword) return;
+
 
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
