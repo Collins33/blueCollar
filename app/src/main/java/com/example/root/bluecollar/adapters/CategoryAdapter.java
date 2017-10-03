@@ -1,14 +1,18 @@
 package com.example.root.bluecollar.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.root.bluecollar.R;
 import com.example.root.bluecollar.models.Category;
+import com.example.root.bluecollar.ui.jobForm;
 
 import java.util.ArrayList;
 
@@ -19,13 +23,15 @@ import java.util.ArrayList;
 public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.CategoryView> {
 
     private ArrayList<Category> categoryData;
+    private Context mContext;
 
-    public CategoryAdapter(ArrayList<Category> data){
+    public CategoryAdapter(Context context,ArrayList<Category> data){
         this.categoryData=data;
+        mContext = context;
     }
 
    //the nested class
-    public static class CategoryView extends RecyclerView.ViewHolder{
+    public  class CategoryView extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView categoryName;
         ImageView categoryImage;
 
@@ -33,6 +39,14 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
             super(view);
             this.categoryName=(TextView) itemView.findViewById(R.id.textViewName);
             this.categoryImage=(ImageView) itemView.findViewById(R.id.imageView);
+            view.setOnClickListener(this);
+
+        }
+        @Override
+        public void onClick(View v){
+           Intent intent=new Intent(mContext,jobForm.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+           mContext.startActivity(intent);
         }
     }
 

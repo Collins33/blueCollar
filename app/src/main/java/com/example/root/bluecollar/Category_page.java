@@ -10,16 +10,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.example.root.bluecollar.adapters.CategoryAdapter;
 import com.example.root.bluecollar.models.Category;
 import com.example.root.bluecollar.ui.StartPage;
+import com.example.root.bluecollar.ui.jobForm;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class Category_page extends AppCompatActivity {
+public class Category_page extends AppCompatActivity implements View.OnClickListener{
     private CardView mCardView;
     private TextView mTextView;
     private static RecyclerView.Adapter adapter;
@@ -33,6 +35,7 @@ public class Category_page extends AppCompatActivity {
         setContentView(R.layout.activity_category_page);
 
         mCardView=(CardView) findViewById(R.id.card_view);
+        //mCardView.setOnClickListener(this);
 
         recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
         recyclerView.setHasFixedSize(true);
@@ -46,10 +49,17 @@ public class Category_page extends AppCompatActivity {
             data.add(new Category(MyData.categories[i],MyData.images[i]));
         }
 
-           adapter=new CategoryAdapter(data);
+           adapter=new CategoryAdapter(getApplicationContext(),data);
            recyclerView.setAdapter(adapter);
 
     }
+    @Override
+    public void onClick(View v){
+        Intent intent=new Intent(getApplicationContext(),jobForm.class);
+        startActivity(intent);
+    }
+
+
     //inflate the menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
