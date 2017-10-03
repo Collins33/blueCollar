@@ -2,6 +2,7 @@ package com.example.root.bluecollar.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.root.bluecollar.Category_page;
@@ -25,6 +27,7 @@ public class Sign_Up extends AppCompatActivity{
     EditText passwordInput;
     EditText confirmPasswordInput;
     Button signUp;
+    TextView createAccount;
     public static final String TAG = Sign_Up.class.getSimpleName();
     private FirebaseAuth mAuth;
     //listen for authentication
@@ -41,6 +44,11 @@ public class Sign_Up extends AppCompatActivity{
         confirmPasswordInput=(EditText) findViewById(R.id.confirmPasswordEditText);
         signUp=(Button) findViewById(R.id.signUpButton);
         mAuth=FirebaseAuth.getInstance();
+        //set typeface
+        createAccount=(TextView) findViewById(R.id.textView6);
+        Typeface champagne=Typeface.createFromAsset(getAssets(),"fonts/champagne.ttf");
+        createAccount.setTypeface(champagne);
+
         createStateListener();
         createProgressDialog();
     }

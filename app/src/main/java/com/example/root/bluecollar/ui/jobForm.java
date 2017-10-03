@@ -22,6 +22,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
     EditText description;
     EditText payment;
     EditText duration;
+    boolean urgently=true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,14 +48,18 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view){
         if(view == saveJobs) {
-            Toast.makeText(getApplicationContext(), "hello", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "job added successfully", Toast.LENGTH_LONG).show();
             String name=employerName.getText().toString();
             String jobDescription=description.getText().toString();
             String money=payment.getText().toString();
             String time=duration.getText().toString();
-            boolean urgent=true;
-            String jobCategory="cooking";
-            Job newjob=new Job(name,jobDescription,money,time,urgent,jobCategory);
+            Intent intent=getIntent();
+            String category=intent.getStringExtra("category");
+
+            String jobCategory=category;
+            //create new instance using the objects
+            Job newjob=new Job(name,jobDescription,money,time,urgently,jobCategory);
+            //save new instance to firebase
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_JOB);
@@ -62,10 +67,10 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
 
         }
         else if (view == casual){
-            boolean urgency=false;
+             urgently=false;
         }
         else if(view==urgent){
-            boolean urgency=true;
+            urgently=true;
         }
     }
 }
