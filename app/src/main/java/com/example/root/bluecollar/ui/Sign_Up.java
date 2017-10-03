@@ -1,5 +1,6 @@
 package com.example.root.bluecollar.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -28,6 +29,7 @@ public class Sign_Up extends AppCompatActivity{
     private FirebaseAuth mAuth;
     //listen for authentication
     private FirebaseAuth.AuthStateListener mAuthStateListener;
+    private ProgressDialog mProgress;
 
 
     @Override
@@ -40,6 +42,14 @@ public class Sign_Up extends AppCompatActivity{
         signUp=(Button) findViewById(R.id.signUpButton);
         mAuth=FirebaseAuth.getInstance();
         createStateListener();
+        createProgressDialog();
+    }
+    //creating the progress dialog
+    public void createProgressDialog(){
+        mProgress=new ProgressDialog(this);
+        mProgress.setTitle("authenticating");
+        mProgress.setMessage("account is being created");
+        mProgress.setCancelable(false);
     }
     public void signUp(View view){
         Intent intent=new Intent(getApplicationContext(),Log_In.class);
@@ -78,11 +88,13 @@ public class Sign_Up extends AppCompatActivity{
         boolean validEmail=isEmailValid(email);
         boolean validPassword=isPasswordValid(password,confirmation);
         if(!validEmail|!validPassword) return;
+        mProgress.show();
 
 
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                mProgress.dismiss();
                 if(task.isSuccessful()){
                     Log.d(TAG,"AUTHENTICATION SUCCESSFULL");
 
