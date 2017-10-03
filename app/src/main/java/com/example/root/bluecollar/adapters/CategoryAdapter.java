@@ -46,6 +46,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.Catego
         public void onClick(View v){
            Intent intent=new Intent(mContext,jobForm.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            String category=categoryName.getText().toString();
+            intent.putExtra("category",category);
            mContext.startActivity(intent);
         }
     }

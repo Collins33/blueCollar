@@ -7,13 +7,13 @@ package com.example.root.bluecollar.models;
 public class Job {
     private String name;
     private String category;
-    private int payment;
+    private String payment;
     private String duration;
     private boolean urgency;
 
     private String description;
 
-    public Job(String name,String category,int payment,String duration,boolean urgency,String description){
+    public Job(String name,String category,String payment,String duration,boolean urgency,String description){
         this.name=name;
         this.category=category;
         this.payment=payment;
@@ -22,6 +22,7 @@ public class Job {
 
         this.description=description;
     }
+    public Job(){}
 
     public String getName() {
         return name;
@@ -31,7 +32,7 @@ public class Job {
         return category;
     }
 
-    public int getPayment() {
+    public String getPayment() {
         return payment;
     }
 
