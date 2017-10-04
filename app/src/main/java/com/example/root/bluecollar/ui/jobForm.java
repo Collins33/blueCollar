@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.root.bluecollar.Category_page;
 import com.example.root.bluecollar.Constants;
 import com.example.root.bluecollar.R;
 import com.example.root.bluecollar.models.Job;
@@ -64,6 +65,10 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_JOB);
             restaurantRef.push().setValue(newjob);
+
+            Intent intent2=new Intent(getApplicationContext(),Category_page.class);
+            startActivity(intent2);
+
 
         }
         else if (view == casual){
