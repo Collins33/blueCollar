@@ -17,7 +17,7 @@
         <activity android:name=".ui.Sign_Up" />
         <activity android:name=".ui.Term_conditions" />
         <activity android:name=".ui.About_us" />
-        <activity android:name=".Category_page"></activity>
+        <activity android:name=".Category_page" />
         <activity android:name=".ui.StartPage">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.jobForm"></activity>
+        <activity android:name=".ui.jobForm" />
+        <activity android:name=".JobBoard"></activity>
     </application>
 
 </manifest>
