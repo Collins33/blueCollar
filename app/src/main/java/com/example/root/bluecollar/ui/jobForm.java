@@ -97,7 +97,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
             boolean validDuration=isDuration(time);
             if(!validName||!validDescription||!validPayment||!validDuration) return;
             //create new instance using the objects
-            Job newjob=new Job(name,jobCategory,money,time,urgently,jobDescription);
+            Job newjob=new Job(name,jobDescription,money,time,urgently,jobCategory);
             //save new instance to firebase
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
