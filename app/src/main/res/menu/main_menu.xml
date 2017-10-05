@@ -16,4 +16,9 @@
         android:title="terms and conditions"
         android:visible="true"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/jobsBoard"
+        android:title="Listed Jobs"
+        android:visible="true"
+        app:showAsAction="never" />
 </menu>

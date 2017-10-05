@@ -75,6 +75,11 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
             logOut();
             return true;
         }
+
+        if(id == R.id.jobsBoard){
+            viewJobs();
+            return true;
+        }
         return false;
     }
     //log user out
@@ -84,5 +89,9 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
         finish();
+    }
+    public void viewJobs(){
+        Intent intent=new Intent(getApplicationContext(),JobBoard.class);
+        startActivity(intent);
     }
 }
