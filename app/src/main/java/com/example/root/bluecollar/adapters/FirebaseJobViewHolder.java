@@ -34,7 +34,7 @@ public class FirebaseJobViewHolder extends RecyclerView.ViewHolder  {
     public void bindJob(Job job){
         TextView description=(TextView) mView.findViewById(R.id.jobDescription);
         TextView pay=(TextView) mView.findViewById(R.id.jobPay);
-        description.setText(job.getDescription());
+        description.setText(job.getCategory());
         pay.setText(job.getPayment());
     }
     //@Override
