@@ -21,6 +21,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
     public class JobViewHolder extends RecyclerView.ViewHolder{
         public TextView jobDescription;
         public TextView jobPay;
+
         //constructor
         public JobViewHolder(View view){
             super(view);

@@ -26,7 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.jobForm" />
-        <activity android:name=".JobBoard" />
+        <activity android:name=".JobBoardAvailable" />
         <activity android:name=".ui.JobBoard"></activity>
     </application>
 

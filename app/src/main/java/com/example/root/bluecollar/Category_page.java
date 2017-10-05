@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.example.root.bluecollar.adapters.CategoryAdapter;
 import com.example.root.bluecollar.models.Category;
+import com.example.root.bluecollar.ui.JobBoard;
 import com.example.root.bluecollar.ui.StartPage;
 import com.example.root.bluecollar.ui.jobForm;
 import com.google.firebase.auth.FirebaseAuth;

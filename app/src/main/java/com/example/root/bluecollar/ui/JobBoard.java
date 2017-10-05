@@ -7,38 +7,43 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.root.bluecollar.Constants;
 import com.example.root.bluecollar.R;
+import com.example.root.bluecollar.adapters.FirebaseJobListAdapter;
 import com.example.root.bluecollar.adapters.FirebaseJobViewHolder;
 import com.example.root.bluecollar.models.Job;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class JobBoard extends AppCompatActivity {
     private DatabaseReference ref;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
-    RecyclerView mRecyclerView;
 
+    private FirebaseJobListAdapter mFirebaseAdapter;
+
+
+    @Bind(R.id.jobBoard) RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_board);
         //recyclerview in the layout
-        mRecyclerView=(RecyclerView) findViewById(R.id.jobBoard);
-        //name of node
-        ref= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_JOB);
-
+        ButterKnife.bind(this);
         setUpFirebaseAdapter();
     }
     private void setUpFirebaseAdapter(){
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Job,FirebaseJobViewHolder>(Job.class,R.layout.available_job,FirebaseJobViewHolder.class,ref) {
+
+        ref= FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_JOB);
+
+        mFirebaseAdapter = new FirebaseJobListAdapter(Job.class,
+                R.layout.available_job, FirebaseJobViewHolder.class,
+                ref, this);
 
 
-            @Override
-            protected void populateViewHolder(FirebaseJobViewHolder viewHolder, Job model, int position) {
-                viewHolder.bindJob(model);
-            }
-        };
         //set our adapter on our recyclerview
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

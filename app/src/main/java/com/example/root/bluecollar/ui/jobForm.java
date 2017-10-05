@@ -46,10 +46,42 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
         String category=intent.getStringExtra("category");
         Toast.makeText(getApplicationContext(),"hello "+category,Toast.LENGTH_LONG).show();
     }
+    //check credentials entered in the form
+    private boolean isEmployerName(String name) {
+        if (name.equals("")) {
+            employerName.setError("Please enter your name");
+            return false;
+        }
+        return true;
+    }
+    private boolean isDescriptionRight(String descriptionJob){
+        if(descriptionJob.equals("")){
+            description.setError("description should not be less than 20 characters");
+            return false;
+        }
+        return true;
+    }
+    private boolean isPaymentRight(String budget){
+        if(budget.equals("")){
+            payment.setError("please enter budget");
+            return false;
+        }
+        return true;
+
+    }
+    private boolean isDuration(String time){
+        if(time.equals("")){
+            duration.setError("please enter valid duration");
+            return false;
+        }
+        return true;
+    }
+
+
     @Override
     public void onClick(View view){
         if(view == saveJobs) {
-            Toast.makeText(getApplicationContext(), "job added successfully", Toast.LENGTH_LONG).show();
+
             String name=employerName.getText().toString();
             String jobDescription=description.getText().toString();
             String money=payment.getText().toString();
@@ -58,6 +90,12 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
             String category=intent.getStringExtra("category");
 
             String jobCategory=category;
+            //validate credentials
+            boolean validName=isEmployerName(name);
+            boolean validDescription=isDescriptionRight(jobDescription);
+            boolean validPayment=isPaymentRight(money);
+            boolean validDuration=isDuration(time);
+            if(!validName||!validDescription||!validPayment||!validDuration) return;
             //create new instance using the objects
             Job newjob=new Job(name,jobDescription,money,time,urgently,jobCategory);
             //save new instance to firebase
@@ -68,14 +106,17 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
 
             Intent intent2=new Intent(getApplicationContext(),Category_page.class);
             startActivity(intent2);
+            Toast.makeText(getApplicationContext(), "job added successfully", Toast.LENGTH_LONG).show();
 
 
         }
         else if (view == casual){
+            urgent.setAlpha(0);
              urgently=false;
         }
         else if(view==urgent){
             urgently=true;
+            casual.setAlpha(0);
         }
     }
 }

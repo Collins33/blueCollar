@@ -118,7 +118,7 @@
         android:layout_alignBottom="@+id/button9"
         android:layout_toEndOf="@+id/linearLayout"
         android:layout_toRightOf="@+id/linearLayout"
-        android:text="URGENCY OF THE JOB"
+        android:text="Is the job urgent?"
         android:textSize="20dp" />
 
     <TextView
