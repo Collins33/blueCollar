@@ -2,6 +2,7 @@ package com.example.root.bluecollar.ui;
 
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -56,6 +57,8 @@ public class JobDetailsFragment extends Fragment implements View.OnClickListener
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mJob = Parcels.unwrap(getArguments().getParcelable("job"));
+
+
     }
     @Override
     public void onClick(View view){
@@ -69,12 +72,18 @@ public class JobDetailsFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blank, container, false);
+        Typeface walkway=Typeface.createFromAsset(getActivity().getAssets(),"fonts/walkway.ttf");
+
         ButterKnife.bind(this,view);
         mCategory.setText(mJob.getDescription());
+        mCategory.setTypeface(walkway);
         mEmployer.setText(mJob.getName());
+        mEmployer.setTypeface(walkway);
         mDescription.setText(mJob.getCategory());
+        mDescription.setTypeface(walkway);
         mUrgent.setText(mJob.getDuration());
-        mPay.setText(mJob.getPayment());
+        mPay.setText("Payment: "+" "+mJob.getPayment());
+        mPay.setTypeface(walkway);
         mContact.setText(mJob.getContact());
         mApplyJob.setOnClickListener(this);
         return view;
