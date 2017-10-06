@@ -27,7 +27,8 @@
         </activity>
         <activity android:name=".ui.jobForm" />
         <activity android:name=".JobBoardAvailable" />
-        <activity android:name=".ui.JobBoard"></activity>
+        <activity android:name=".ui.JobBoard" />
+        <activity android:name=".ui.JobDetailActivity"></activity>
     </application>
 
 </manifest>

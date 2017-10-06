@@ -1,9 +1,9 @@
 package com.example.root.bluecollar.models;
 
-/**
- * Created by root on 9/27/17.
- */
+import org.parceler.Parcel;
 
+
+@Parcel
 public class Job {
     private String name;
     private String category;

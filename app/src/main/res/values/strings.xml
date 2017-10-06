@@ -18,5 +18,8 @@
     <string name="slide_4_title">Guarantee</string>
     <string name="slide_4_desc">We guarantee you the best prices and the best quality!</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>
