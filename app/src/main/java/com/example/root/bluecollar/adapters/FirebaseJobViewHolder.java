@@ -27,7 +27,7 @@ import java.util.ArrayList;
 public class FirebaseJobViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     View mView;
     Context context;
-    Job job;
+
     public FirebaseJobViewHolder(View itemView) {
         super(itemView);
         mView = itemView;
@@ -43,15 +43,30 @@ public class FirebaseJobViewHolder extends RecyclerView.ViewHolder implements Vi
     }
     @Override
    public void onClick(View view){
+        final ArrayList<Job> jobs = new ArrayList<>();
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_JOB);
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    jobs.add(snapshot.getValue(Job.class));
+                }
 
                 int itemPosition = getLayoutPosition();
 
                 Intent intent = new Intent(context, JobDetailActivity.class);
                 intent.putExtra("position", itemPosition + "");
-                intent.putExtra("jobs", Parcels.wrap(job));
+                intent.putExtra("jobs", Parcels.wrap(jobs));
 
                 context.startActivity(intent);
             }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
 
 }
 

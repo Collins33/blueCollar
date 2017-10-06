@@ -14,24 +14,25 @@ import java.util.ArrayList;
  */
 
 public class JobDetailsAdapter extends FragmentPagerAdapter {
-    private ArrayList<Job> mJob;
-    public JobDetailsAdapter(FragmentManager fm, ArrayList<Job> restaurants) {
+    private ArrayList<Job> mJobs;
+
+    public JobDetailsAdapter(FragmentManager fm, ArrayList<Job> mJob) {
         super(fm);
-        mJob = restaurants;
+        mJobs = mJob;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return JobDetailsFragment.newInstance(mJob.get(position));
+        return JobDetailsFragment.newInstance(mJobs.get(position));
     }
 
     @Override
     public int getCount() {
-        return mJob.size();
+        return mJobs.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mJob.get(position).getCategory();
+        return mJobs.get(position).getCategory();
     }
 }
