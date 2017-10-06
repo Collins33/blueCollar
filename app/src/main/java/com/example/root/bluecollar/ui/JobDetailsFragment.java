@@ -1,13 +1,17 @@
 package com.example.root.bluecollar.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.root.bluecollar.R;
 import com.example.root.bluecollar.models.Job;
@@ -20,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class JobDetailsFragment extends Fragment {
+public class JobDetailsFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.restaurantImageView)
     ImageView mImageLabel;
     @Bind(R.id.jobCategory)
@@ -31,6 +35,7 @@ public class JobDetailsFragment extends Fragment {
     @Bind(R.id.jobPay) TextView mPay;
 
     @Bind(R.id.saveRestaurantButton) TextView mApplyJob;
+
     private Job mJob;
 
 
@@ -51,6 +56,12 @@ public class JobDetailsFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mJob = Parcels.unwrap(getArguments().getParcelable("job"));
     }
+    @Override
+    public void onClick(View view){
+        Uri number = Uri.parse("tel:5551234");
+        Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
+        startActivity(callIntent);
+    }
 
 
     @Override
@@ -58,11 +69,14 @@ public class JobDetailsFragment extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_blank, container, false);
         ButterKnife.bind(this,view);
-        mCategory.setText(mJob.getCategory());
+        mCategory.setText(mJob.getDescription());
         mEmployer.setText(mJob.getName());
-        mDescription.setText(mJob.getDescription());
+        mDescription.setText(mJob.getCategory());
+        mUrgent.setText(mJob.getDuration());
         mPay.setText(mJob.getPayment());
+        mApplyJob.setOnClickListener(this);
         return view;
+
 
     }
 

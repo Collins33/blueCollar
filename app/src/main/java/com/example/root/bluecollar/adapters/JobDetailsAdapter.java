@@ -33,6 +33,6 @@ public class JobDetailsAdapter extends FragmentPagerAdapter {
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return mJobs.get(position).getCategory();
+        return mJobs.get(position).getDescription();
     }
 }
