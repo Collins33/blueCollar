@@ -23,6 +23,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
     EditText description;
     EditText payment;
     EditText duration;
+    EditText contact;
     boolean urgently=true;
 
     @Override
@@ -41,6 +42,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
         description=(EditText) findViewById(R.id.editText8);
         payment=(EditText) findViewById(R.id.editText9);
         duration=(EditText) findViewById(R.id.editText10);
+        contact=(EditText) findViewById(R.id.contact);
         //intent get extra string
         Intent intent=getIntent();
         String category=intent.getStringExtra("category");
@@ -76,6 +78,13 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
         }
         return true;
     }
+    private boolean isNumber(String number){
+        if(number.equals("")||number.length()<10){
+            contact.setError("Enter a valid number");
+            return false;
+        }
+        return true;
+    }
 
 
     @Override
@@ -86,6 +95,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
             String jobDescription=description.getText().toString();
             String money=payment.getText().toString();
             String time=duration.getText().toString();
+            String number=contact.getText().toString();
             Intent intent=getIntent();
             String category=intent.getStringExtra("category");
 
@@ -95,9 +105,10 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
             boolean validDescription=isDescriptionRight(jobDescription);
             boolean validPayment=isPaymentRight(money);
             boolean validDuration=isDuration(time);
-            if(!validName||!validDescription||!validPayment||!validDuration) return;
+            boolean validPhone=isNumber(number);
+            if(!validName||!validDescription||!validPayment||!validDuration||!validPhone) return;
             //create new instance using the objects
-            Job newjob=new Job(name,jobDescription,money,time,urgently,jobCategory);
+            Job newjob=new Job(name,jobDescription,money,time,urgently,jobCategory,number);
             //save new instance to firebase
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()

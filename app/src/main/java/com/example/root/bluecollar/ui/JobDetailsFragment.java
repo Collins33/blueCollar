@@ -33,6 +33,7 @@ public class JobDetailsFragment extends Fragment implements View.OnClickListener
     @Bind(R.id.urgency) TextView mUrgent;
     @Bind(R.id.jobDescription) TextView mDescription;
     @Bind(R.id.jobPay) TextView mPay;
+    @Bind(R.id.contact)  TextView mContact;
 
     @Bind(R.id.saveRestaurantButton) TextView mApplyJob;
 
@@ -58,9 +59,9 @@ public class JobDetailsFragment extends Fragment implements View.OnClickListener
     }
     @Override
     public void onClick(View view){
-        Uri number = Uri.parse("tel:5551234");
-        Intent callIntent = new Intent(Intent.ACTION_DIAL, number);
-        startActivity(callIntent);
+        String phoneNumber=mContact.getText().toString().trim();
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNumber, null));
+        startActivity(intent);
     }
 
 
@@ -74,6 +75,7 @@ public class JobDetailsFragment extends Fragment implements View.OnClickListener
         mDescription.setText(mJob.getCategory());
         mUrgent.setText(mJob.getDuration());
         mPay.setText(mJob.getPayment());
+        mContact.setText(mJob.getContact());
         mApplyJob.setOnClickListener(this);
         return view;
 

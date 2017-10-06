@@ -10,10 +10,11 @@ public class Job {
     private String payment;
     private String duration;
     private boolean urgency;
+    private String contact;
 
     private String description;
 
-    public Job(String name,String category,String payment,String duration,boolean urgency,String description){
+    public Job(String name,String category,String payment,String duration,boolean urgency,String description,String contact){
         this.name=name;
         this.category=category;
         this.payment=payment;
@@ -21,6 +22,7 @@ public class Job {
         this.urgency=urgency;
 
         this.description=description;
+        this.contact=contact;
     }
     public Job(){}
 
@@ -48,5 +50,8 @@ public class Job {
 
     public String getDescription() {
         return description ;
+    }
+    public String getContact(){
+        return contact;
     }
 }

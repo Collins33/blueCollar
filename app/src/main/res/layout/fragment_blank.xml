@@ -59,6 +59,16 @@
                 android:text="urgency"
                 android:textColor="@color/cardview_dark_background"
                 android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/contact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:alpha="0"
+                android:text="contact" />
         </RelativeLayout>
 
         <RelativeLayout
