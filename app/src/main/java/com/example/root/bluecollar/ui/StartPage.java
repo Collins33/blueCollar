@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.root.bluecollar.R;
 import com.example.root.bluecollar.ui.Log_In;
@@ -43,6 +44,9 @@ public class StartPage extends AppCompatActivity {
         Intent intent=new Intent(getApplicationContext(),Sign_Up.class);
         startActivity(intent);
         //finish();
+    }
+    public void GoogleSignIn(View view){
+        Toast.makeText(getApplicationContext(),"comming soon",Toast.LENGTH_LONG).show();
     }
 
 }
