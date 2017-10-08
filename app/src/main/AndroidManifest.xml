@@ -20,16 +20,20 @@
         <activity android:name=".ui.About_us" />
         <activity android:name=".Category_page" />
         <activity android:name=".ui.StartPage">
+
+        </activity>
+        <activity android:name=".ui.jobForm" />
+        <activity android:name=".JobBoardAvailable" />
+        <activity android:name=".ui.JobBoard" />
+        <activity android:name=".ui.JobDetailActivity" />
+        <activity android:name=".ui.splash"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.jobForm" />
-        <activity android:name=".JobBoardAvailable" />
-        <activity android:name=".ui.JobBoard" />
-        <activity android:name=".ui.JobDetailActivity"></activity>
     </application>
 
 </manifest>
