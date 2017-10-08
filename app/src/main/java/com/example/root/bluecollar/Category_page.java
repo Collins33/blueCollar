@@ -7,6 +7,7 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -18,6 +19,12 @@ import com.example.root.bluecollar.models.Category;
 import com.example.root.bluecollar.ui.JobBoard;
 import com.example.root.bluecollar.ui.StartPage;
 import com.example.root.bluecollar.ui.jobForm;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.firebase.auth.FirebaseAuth;
 
 import org.aviran.cookiebar2.CookieBar;
@@ -31,6 +38,7 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
     private RecyclerView.LayoutManager layoutManager;
     private static RecyclerView recyclerView;
     private static ArrayList<Category> data;
+    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,12 +67,16 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
            adapter=new CategoryAdapter(getApplicationContext(),data);
            recyclerView.setAdapter(adapter);
 
+
+
+
     }
     @Override
     public void onClick(View v){
         Intent intent=new Intent(getApplicationContext(),jobForm.class);
         startActivity(intent);
     }
+
 
 
     //inflate the menu
@@ -87,6 +99,7 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
             viewJobs();
             return true;
         }
+
         return false;
     }
     //log user out
@@ -101,4 +114,6 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
         Intent intent=new Intent(getApplicationContext(),JobBoard.class);
         startActivity(intent);
     }
+
+
 }
