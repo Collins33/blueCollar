@@ -10,12 +10,16 @@ import android.widget.TextView;
 import com.example.root.bluecollar.R;
 import com.example.root.bluecollar.ui.Log_In;
 import com.example.root.bluecollar.ui.Sign_Up;
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 public class StartPage extends AppCompatActivity {
         TextView firstText;
         TextView secondText;
+        GoogleApiClient mGoogleApiClient;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
         firstText=(TextView) findViewById(R.id.textView4);
@@ -24,6 +28,11 @@ public class StartPage extends AppCompatActivity {
         Typeface song=Typeface.createFromAsset(getAssets(),"fonts/champagne.ttf");
         firstText.setTypeface(champagne);
         secondText.setTypeface(song);
+
+
+
+
+
 
     }
     public void logIn(View view){
@@ -35,4 +44,5 @@ public class StartPage extends AppCompatActivity {
         startActivity(intent);
         //finish();
     }
+
 }

@@ -20,6 +20,8 @@ import com.example.root.bluecollar.ui.StartPage;
 import com.example.root.bluecollar.ui.jobForm;
 import com.google.firebase.auth.FirebaseAuth;
 
+import org.aviran.cookiebar2.CookieBar;
+
 import java.util.ArrayList;
 
 public class Category_page extends AppCompatActivity implements View.OnClickListener{
@@ -34,6 +36,10 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_page);
+        CookieBar.Build(Category_page.this)
+                .setTitle("WELCOME")
+                .setMessage("CLICK CATEGORY TO ADD TASK")
+                .show();
 
         mCardView=(CardView) findViewById(R.id.card_view);
         //mCardView.setOnClickListener(this);
