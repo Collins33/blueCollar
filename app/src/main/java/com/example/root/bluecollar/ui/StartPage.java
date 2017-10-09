@@ -19,11 +19,11 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 public class StartPage extends AppCompatActivity {
-        TextView firstText;
-        TextView secondText;
-        GoogleApiClient mGoogleApiClient;
-        SignInButton mGoogleSignInButton;
-        private static final int RC_SIGN_IN = 9001;
+    TextView firstText;
+    TextView secondText;
+    GoogleApiClient mGoogleApiClient;
+    SignInButton mGoogleSignInButton;
+    private static final int RC_SIGN_IN = 9001;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
