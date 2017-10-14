@@ -7,27 +7,25 @@
     android:background="@android:color/holo_blue_light"
     tools:context="com.example.root.bluecollar.ui.StartPage">
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
+        android:orientation="horizontal"
+        android:id="@+id/linearLayout2"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="105dp"
-        android:layout_marginStart="105dp"
-        android:text="BlueCollar"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="30dp" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="170dp"
-        android:layout_height="200dp"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_below="@+id/textView4"
-        app:srcCompat="@drawable/bluecollar" />
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="BlueCollar"
+            android:textColor="@color/cardview_light_background"
+            android:textSize="30dp" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/button3"
@@ -36,10 +34,10 @@
         android:background="@android:color/background_light"
         android:onClick="logIn"
         android:text="Log-in"
-        android:layout_marginTop="28dp"
-        android:layout_below="@+id/textView5"
+        android:layout_above="@+id/button2"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="23dp" />
 
     <Button
         android:id="@+id/button4"
@@ -53,17 +51,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/imageView2"
-        android:layout_alignStart="@+id/imageView2"
-        android:layout_centerVertical="true"
-        android:text="Get more done"
-        android:textColor="@color/cardview_light_background"
-        android:textSize="25dp" />
-
     <com.google.android.gms.common.SignInButton
         android:id="@+id/button2"
         android:layout_width="170dp"
@@ -72,4 +59,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="12dp"
        />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="170dp"
+        android:layout_height="200dp"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/bluecollar"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2" />
+
 </RelativeLayout>

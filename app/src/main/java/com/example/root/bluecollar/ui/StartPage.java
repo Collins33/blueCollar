@@ -29,11 +29,11 @@ public class StartPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
         firstText=(TextView) findViewById(R.id.textView4);
-        secondText=(TextView) findViewById(R.id.textView5);
+
         Typeface champagne=Typeface.createFromAsset(getAssets(),"fonts/song.ttf");
         Typeface song=Typeface.createFromAsset(getAssets(),"fonts/champagne.ttf");
         firstText.setTypeface(champagne);
-        secondText.setTypeface(song);
+
         //google sign in
         mGoogleSignInButton = (SignInButton)findViewById(R.id.button2);
         mGoogleSignInButton.setOnClickListener(new View.OnClickListener() {
