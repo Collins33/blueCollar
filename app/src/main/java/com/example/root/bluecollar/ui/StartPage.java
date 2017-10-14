@@ -2,6 +2,7 @@ package com.example.root.bluecollar.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class StartPage extends AppCompatActivity {
     TextView firstText;
@@ -24,6 +27,8 @@ public class StartPage extends AppCompatActivity {
     GoogleApiClient mGoogleApiClient;
     SignInButton mGoogleSignInButton;
     private static final int RC_SIGN_IN = 9001;
+    private FirebaseAuth.AuthStateListener mListener;
+    private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -33,6 +38,21 @@ public class StartPage extends AppCompatActivity {
         Typeface champagne=Typeface.createFromAsset(getAssets(),"fonts/song.ttf");
         Typeface song=Typeface.createFromAsset(getAssets(),"fonts/champagne.ttf");
         firstText.setTypeface(champagne);
+        //firebase authentication
+        mAuth=FirebaseAuth.getInstance();
+        //listen to if user is authenticated and if they are authenticated the user goes to category immediately
+        mListener=new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user=firebaseAuth.getCurrentUser();
+                if(user!=null){
+                    Intent intent=new Intent(StartPage.this, Category_page.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
+                    finish();
+                }
+            }
+        };
 
         //google sign in
         mGoogleSignInButton = (SignInButton)findViewById(R.id.button2);
@@ -43,6 +63,19 @@ public class StartPage extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        mAuth.addAuthStateListener(mListener);
+    }
+    @Override
+    public void onStop(){
+        super.onStop();
+        if(mListener != null){
+            mAuth.removeAuthStateListener(mListener);
+        }
     }
     public void logIn(View view){
         Intent intent=new Intent(getApplicationContext(),Log_In.class);
