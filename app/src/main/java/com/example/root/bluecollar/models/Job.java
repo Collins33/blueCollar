@@ -9,12 +9,12 @@ public class Job {
     private String category;
     private String payment;
     private String duration;
-    private boolean urgency;
+    private String urgency;
     private String contact;
 
     private String description;
 
-    public Job(String name,String category,String payment,String duration,boolean urgency,String description,String contact){
+    public Job(String name,String category,String payment,String duration,String urgency,String description,String contact){
         this.name=name;
         this.category=category;
         this.payment=payment;
@@ -42,7 +42,7 @@ public class Job {
         return duration;
     }
 
-    public boolean isUrgency() {
+    public String isUrgency() {
         return urgency;
     }
 

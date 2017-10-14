@@ -1,11 +1,16 @@
 package com.example.root.bluecollar.ui;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.root.bluecollar.Category_page;
@@ -15,38 +20,61 @@ import com.example.root.bluecollar.models.Job;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class jobForm extends AppCompatActivity implements View.OnClickListener{
     Button saveJobs;
-    Button casual;
-    Button urgent;
+
     EditText employerName;
     EditText description;
     EditText payment;
     EditText duration;
     EditText contact;
-    boolean urgently=true;
+    TextView heading;
+    private Spinner mSpinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_form);
-        saveJobs=(Button) findViewById(R.id.button8);
-        casual=(Button) findViewById(R.id.button7);
-        urgent=(Button) findViewById(R.id.button9);
+        //find the views
+        saveJobs=(Button) findViewById(R.id.addJobButton);
+
+        heading=(TextView) findViewById(R.id.textView10);
         //set click listeners
         saveJobs.setOnClickListener(this);
-        casual.setOnClickListener(this);
-        urgent.setOnClickListener(this);
+
         //get views
-        employerName=(EditText) findViewById(R.id.editText7);
-        description=(EditText) findViewById(R.id.editText8);
-        payment=(EditText) findViewById(R.id.editText9);
-        duration=(EditText) findViewById(R.id.editText10);
-        contact=(EditText) findViewById(R.id.contact);
+        employerName=(EditText) findViewById(R.id.editName);
+        description=(EditText) findViewById(R.id.editDescription);
+        payment=(EditText) findViewById(R.id.editPayment);
+        duration=(EditText) findViewById(R.id.editDuration);
+        contact=(EditText) findViewById(R.id.editContact);
         //intent get extra string
         Intent intent=getIntent();
         String category=intent.getStringExtra("category");
         Toast.makeText(getApplicationContext(),"hello "+category,Toast.LENGTH_LONG).show();
+        //set font style
+        Typeface song=Typeface.createFromAsset(getAssets(),"fonts/song.ttf");
+        heading.setTypeface(song);
+        //add items to spinner in this method
+        addItemsToSpinner();
+    }
+    //add items to spinner
+    public void addItemsToSpinner(){
+    //find spinner view
+        mSpinner=(Spinner) findViewById(R.id.spinner2);
+        //create arrayList to contain items of the spinner
+        List<String> state=new ArrayList<String>();
+        state.add("urgent");
+        state.add("casual");
+        //array adapter to connect array to spinner
+        ArrayAdapter<String> dataSpinner=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,state);
+        dataSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //set adapter to spinner
+        mSpinner.setAdapter(dataSpinner);
     }
     //check credentials entered in the form
     private boolean isEmployerName(String name) {
@@ -96,6 +124,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
             String money=payment.getText().toString();
             String time=duration.getText().toString();
             String number=contact.getText().toString();
+            String urgently=String.valueOf(mSpinner.getSelectedItem());
             Intent intent=getIntent();
             String category=intent.getStringExtra("category");
 
@@ -121,13 +150,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
 
 
         }
-        else if (view == casual){
-            urgent.setAlpha(0);
-             urgently=false;
-        }
-        else if(view==urgent){
-            urgently=true;
-            casual.setAlpha(0);
-        }
+
+
     }
 }
