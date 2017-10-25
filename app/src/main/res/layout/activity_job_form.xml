@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="FILL THE FORM TO SUBMIT A JOB"
-        android:textSize="22dp" />
+        android:textSize="22sp"
+        android:paddingTop="10dp"/>
 
     <EditText
         android:id="@+id/editName"
@@ -23,6 +24,8 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="name of employer"
+        android:padding="10dp"
+        android:paddingTop="10dp"
         android:background="@android:drawable/editbox_dropdown_light_frame"/>
 
     <TextView
@@ -31,14 +34,17 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:height="0dp"
-        android:background="@android:drawable/editbox_dropdown_light_frame"
-        android:text="URGENCY OF THE JOB" />
+        android:textAlignment="center"
+        android:text="URGENCY OF THE JOB"
+        android:paddingTop="10dp"/>
     <Spinner
         android:id="@+id/spinner2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="0dp"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+        android:padding="10dp"
+        android:paddingTop="10dp"/>
 
     <EditText
         android:id="@+id/editDescription"
@@ -49,7 +55,9 @@
         android:layout_weight="1"
         android:inputType="textPersonName"
         android:hint="description of the job"
-        android:background="@android:drawable/editbox_dropdown_light_frame"/>
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:padding="10dp"
+        android:paddingTop="10dp"/>
 
     <EditText
         android:id="@+id/editPayment"
@@ -61,7 +69,8 @@
         android:inputType="textPersonName"
         android:hint="payment amount in ksh"
         android:background="@android:drawable/editbox_dropdown_light_frame"
-        />
+        android:padding="10dp"
+        android:paddingTop="10dp" />
 
     <EditText
         android:id="@+id/editDuration"
@@ -72,7 +81,9 @@
         android:layout_weight="1"
         android:inputType="textPersonName"
         android:hint="Duration of the job"
-        android:background="@android:drawable/editbox_dropdown_light_frame"/>
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:padding="10dp"
+        android:paddingTop="10dp"/>
 
     <EditText
         android:id="@+id/editContact"
@@ -83,7 +94,9 @@
         android:hint="contact information of the employer"
         android:height="0dp"
         android:layout_weight="1"
-        android:background="@android:drawable/editbox_dropdown_light_frame"/>
+        android:background="@android:drawable/editbox_dropdown_light_frame"
+        android:padding="10dp"
+        android:paddingTop="10dp"/>
 
     <Button
         android:id="@+id/addJobButton"
@@ -91,7 +104,8 @@
         android:layout_height="wrap_content"
         android:background="@color/default_action_color"
         android:text="Add job"
-        />
+        android:padding="10dp"
+        android:paddingTop="10dp"/>
 
 
 </LinearLayout>

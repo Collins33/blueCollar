@@ -57,7 +57,7 @@ public class jobForm extends AppCompatActivity implements View.OnClickListener{
         String category=intent.getStringExtra("category");
         Toast.makeText(getApplicationContext(),"hello "+category,Toast.LENGTH_LONG).show();
         //set font style
-        Typeface song=Typeface.createFromAsset(getAssets(),"fonts/song.ttf");
+        Typeface song=Typeface.createFromAsset(getAssets(),"fonts/champagne.ttf");
         heading.setTypeface(song);
         //add items to spinner in this method
         addItemsToSpinner();

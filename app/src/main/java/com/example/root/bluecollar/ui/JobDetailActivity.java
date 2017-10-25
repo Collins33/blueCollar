@@ -19,8 +19,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class JobDetailActivity extends AppCompatActivity{
-    @Bind(R.id.viewPager)
-    ViewPager mViewPager;
+    @Bind(R.id.viewPager) ViewPager mViewPager;
 
     private JobDetailsAdapter adapterViewPager;
     ArrayList<Job> mJobs= new ArrayList<>();

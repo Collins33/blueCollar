@@ -56,13 +56,13 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
                 .show();
         //set font style
         categoryHeading=(TextView) findViewById(R.id.jobCategories);
-        Typeface song=Typeface.createFromAsset(getAssets(),"fonts/song.ttf");
+        Typeface song=Typeface.createFromAsset(getAssets(),"fonts/champagne.ttf");
         categoryHeading.setTypeface(song);
 
         mCardView=(CardView) findViewById(R.id.card_view);
         //mCardView.setOnClickListener(this);
 
-        recyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
+        recyclerView = (RecyclerView) findViewById(R.id.jobBoard);
         recyclerView.setHasFixedSize(true);
 
         layoutManager = new GridLayoutManager(this, 2);
@@ -77,9 +77,6 @@ public class Category_page extends AppCompatActivity implements View.OnClickList
 
            adapter=new CategoryAdapter(getApplicationContext(),data);
            recyclerView.setAdapter(adapter);
-
-
-
 
     }
     @Override

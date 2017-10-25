@@ -56,7 +56,7 @@ public class FirebaseJobViewHolder extends RecyclerView.ViewHolder implements Vi
                 int itemPosition = getLayoutPosition();
 
                 Intent intent = new Intent(context, JobDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
+                intent.putExtra("position", itemPosition);
                 intent.putExtra("jobs", Parcels.wrap(jobs));
 
                 context.startActivity(intent);
