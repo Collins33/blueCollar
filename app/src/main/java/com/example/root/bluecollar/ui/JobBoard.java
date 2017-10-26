@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.root.bluecollar.Constants;
@@ -16,6 +17,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,7 +43,19 @@ public class JobBoard extends AppCompatActivity {
         setUpFirebaseAdapter();
     }
     public void addCategoryToSpinner(){
-
+    categorySpinner=(Spinner) findViewById(R.id.categorySpinner);
+        //arraylist with categories
+        List<String> categories=new ArrayList<>();
+        categories.add("CLEANING");
+        categories.add("TRANSPORT");
+        categories.add("LANDSCAPING");
+        categories.add("DELIVERY");
+        categories.add("COOKING");
+        categories.add("HANDYMAN");
+        //arrayadapter to add data to the spinner
+       ArrayAdapter<String> spinnerAdapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item,categories);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        categorySpinner.setAdapter(spinnerAdapter);
     }
     private void setUpFirebaseAdapter(){
 
