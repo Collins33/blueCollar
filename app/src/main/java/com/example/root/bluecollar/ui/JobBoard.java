@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.Spinner;
 
 import com.example.root.bluecollar.Constants;
 import com.example.root.bluecollar.R;
@@ -26,6 +27,7 @@ public class JobBoard extends AppCompatActivity {
 
 
     @Bind(R.id.jobBoard) RecyclerView mRecyclerView;
+    private Spinner categorySpinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,11 @@ public class JobBoard extends AppCompatActivity {
         setContentView(R.layout.activity_job_board);
         //recyclerview in the layout
         ButterKnife.bind(this);
+        addCategoryToSpinner();
         setUpFirebaseAdapter();
+    }
+    public void addCategoryToSpinner(){
+
     }
     private void setUpFirebaseAdapter(){
 
