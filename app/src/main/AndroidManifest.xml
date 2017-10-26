@@ -20,15 +20,40 @@
         <activity android:name=".ui.Log_In" />
         <activity android:name=".ui.Sign_Up" />
         <activity android:name=".ui.Term_conditions" />
-        <activity android:name=".ui.About_us" />
+        <activity android:name=".ui.About_us" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.bluecollar.Category_page">
+            </meta-data>
+        </activity>
         <activity android:name=".Category_page" />
         <activity android:name=".ui.StartPage">
 
         </activity>
-        <activity android:name=".ui.jobForm" />
-        <activity android:name=".JobBoardAvailable" />
-        <activity android:name=".ui.JobBoard" />
-        <activity android:name=".ui.JobDetailActivity" />
+        <activity android:name=".ui.jobForm" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.bluecollar.Category_page">
+            </meta-data>
+        </activity>
+        <activity android:name=".JobBoardAvailable" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.bluecollar.Category_page">
+            </meta-data>
+        </activity>
+        <activity android:name=".ui.JobBoard" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.bluecollar.Category_page">
+            </meta-data>
+        </activity>
+        <activity android:name=".ui.JobDetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.root.bluecollar.Category_page">
+            </meta-data>
+        </activity>
         <activity android:name=".ui.splash"
             android:theme="@style/SplashTheme">
             <intent-filter>
